@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <!-- Load do Message Properties -->
+	<f:view contentType="text/html" encoding="ISO-8859-1" >
+	<f:loadBundle basename="com.altec.bsbr.app.blank.message.default" var="msg"/>
+	
+<h:head>
+<link type="text/css" rel="stylesheet" href="#{request.contextPath}/css/santander.css" media="screen"/>
+</h:head>
+ 
+<body> 
+<p:outputPanel>
+<div id="divPrincipal">
+    <div id="divTopoNegocios">
+    	<div id="topo_esquerda">
+    		<img src="#{facesContext.externalContext.requestContextPath}/images/logo.gif" align="absmiddle"></img>
+    		<img src="#{facesContext.externalContext.requestContextPath}/images/img_divisoria.gif" align="absmiddle"></img> 
+    			<b>Nome do Sistema</b>	
+    	</div>
+		<div id="topo_direita">
+			<img src="#{facesContext.externalContext.requestContextPath}/images/bt_sair.gif" onclick="javascript:window.opener='X'; window.open('','_parent',''); window.close();" type="button" />
+		</div>
+    </div>
+
+	<ui:insert name="menu"></ui:insert>
+	<div style="vertical-align:top; padding-top:10px; padding-left:10px;width:758px;">
+		<ui:insert name="content"></ui:insert>
+	</div>
+
+</div>
+</p:outputPanel>
+</body>
+</f:view>
+	
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:ui="http://java.sun.com/jsf/facelets" 
+xmlns:p="http://primefaces.org/ui">
+
+
+<f:view contentType="text/html" encoding="ISO-8859-1" >
+<h:head>
+
+<title>Bem vindo a RPerformance</title>
+
+<!-- <link type="text/css" rel="Stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/default.css"  /> -->
+<!-- <link type="text/css" rel="Stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/prime.css"  /> -->
+<!-- <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/functions.js" /> -->
+
+</h:head>
+<h:body>
+
+
+<div id="wrapper" >
+	<div id="header">
+		<div class="inner">
+			<div class="logoClass" >
+				<a id="logo" href="#"></a>
+			</div> 
+			<h:form >
+
+			</h:form>
+
+		</div>
+	</div>
+
+	<p:outputPanel id="main" layout="block">
+		
+				<ui:insert name="main">
+				     	Body content missed
+				</ui:insert>
+		
+    </p:outputPanel>
+
+
+	<div id="footer">
+		<div class="inner">
+			<div id="siteMap">
+			</div>
+			
+			
+	        <div id="copyBar"> 
+	           Copyright RPerformance
+	        </div>			
+		</div>
+		
+	</div>
+
+	
+
+
+</div>
+
+
+</h:body>
+</f:view>
+</html>

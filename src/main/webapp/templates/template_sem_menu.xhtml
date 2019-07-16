@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:jsp="http://java.sun.com/JSP/Page"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui">
+
+    <!-- Load do Message Properties -->
+	<f:loadBundle basename="com.altec.bsbr.app.blank.message.default" var="msg"/>
+	
+	<!-- Header -->
+	<head>
+	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	    <meta name="Description" content="Information architecture, Web Design, Web Standards."/>
+	    <meta name="Keywords" content="your, keywords"/>
+	    <meta name="Distribution" content="Global"/>
+	    <meta name="Author" content="isBan Brasil"/>
+	    <meta name="Robots" content="index,follow"/>
+	    
+	    <!-- Arquivos Uteis  -->
+	    <link rel="shortcut icon" href="#{facesContext.externalContext.requestContextPath}/favicon.ico" type="image/x-icon"/>
+	    <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/xmlhttp/css/rime/rime.css" media="screen"/>
+	    <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/css/santander.css" media="screen"/>
+	    <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/css/styles.css" media="screen"/>
+	    <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/functions.js"></script>
+	     <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/utils.js"></script>
+	    <ui:insert name="javaScriptReference"/>
+	</head>
+	
+<body style="margin: 0px;margin-top: 0px;">
+
+<div id="divPrincipal">
+    <div id="divTopoCorporativo">
+    	<div id="topo_esquerda">
+    		<img src="#{facesContext.externalContext.requestContextPath}/images/logo.gif" align="absmiddle"></img>
+    		<img src="#{facesContext.externalContext.requestContextPath}/images/img_divisoria.gif" align="absmiddle"></img> 
+    			<b>Nome do Sistema</b>	
+    	</div>
+		<div id="topo_direita">
+			<img src="#{facesContext.externalContext.requestContextPath}/images/bt_sair.gif" onclick="javascript:window.opener='X'; window.open('','_parent',''); window.close();" type="button" />
+		</div>
+    </div>
+	    <table  border="0" cellpadding="0" cellspacing="0">
+	        <tr>
+	            <td style="vertical-align: top;margin-top: 0px;margin-left: 0px;">
+	                <div style="vertical-align: top;margin-left: 0px;margin-bottom: 55px;">
+	                	<ui:insert name="content" />
+	                </div>
+	            </td>
+	        </tr>
+	    </table>
+	    <div id="rodape">
+			<ui:insert name="rodape" />
+		</div>
+</div>
+</body>
+</html>

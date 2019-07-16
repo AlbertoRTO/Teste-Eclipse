@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:jsp="http://java.sun.com/JSP/Page"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/template.xhtml">
+	
+		<ui:define name="menu" >
+			<ui:include src="/commons/menuEsquerdo.xhtml"/>
+		</ui:define>
+
+		<ui:define name="content" >
+			<form jsfc="h:form" id="form">
+
+				<!-- INICIO - Migalha de PÃ£o  -->
+				<div id="migalha">
+						<a href="#" class="migalha"> Compras </a> >  <a href="#" class="migalha"> Agrupação A </a> > <span> <b> Página central</b></span>
+				</div>
+				<!-- FIM - Migalha de PÃ£o  -->
+				<br/><br/>
+
+					<!-- INICIO - Titulo Pagina  -->
+					<h:outputText id="idTituloPagina" styleClass="paginaCentral" value="#{ msg['page.tiltle'] } "></h:outputText>
+					<!-- FIM - Titulo Pagina  -->
+
+					<!-- INICIO - Separador  -->
+					<hr border="0" align="left" width="98%" size="1" noshade="noshade">
+						<!-- INICIO - TEXTO  -->
+						<h:outputText id="idTextoPrincipal" styleClass="text" value="#{ msg['page.text.present'] }" ></h:outputText>
+						<br/><br/><br/><br/> 
+						<!-- FIM - TEXTO  -->
+					</hr>
+					<!-- FIM - Separador  -->
+	
+	
+					<!-- INICIO - Caixa de Filtro  -->
+					<div class="cinza fleft">
+						<!-- Caixa Texto -->
+						<div class="fleft">
+							<h:outputText id="idFiltroText" styleClass="text" value="#{ msg['page.title.component.text'] } " ></h:outputText>
+							<br></br> 
+							<p:inputText id="idFiltroInputText" styleClass="text" size="25" maxlength="25" value="#{firstPageBBean.text}"/>
+						</div>
+						<div class="fleft">
+						    <h:outputText id="idFiltroText2" styleClass="text" value="#{ msg['page.title.component.text'] }"></h:outputText> 
+						    <br></br> 
+							<p:inputText id="idFiltroInputText2" styleClass="text" size="25" maxlength="25" value="#{firstPageBBean.text}"/>
+						</div>
+						<!-- Selected Option (Combo)  -->						
+						<div class="fleft">
+			                <h:outputText styleClass="text" id="idCombo" for="idOption" value="#{ msg['page.title.component.combo'] }"/>
+			                <br></br>
+			                	<p:selectOneMenu id="idOption" value="#{firstPageBBean.selectedComponent}" rendered="#{!firstPageBBean.popup}">
+			                    		<f:selectItems id="idSlct" value="#{firstPageBBean.componentItems}" ></f:selectItems>
+			                	</p:selectOneMenu>
+						</div>
+						
+					</div>
+					<!-- FIM - Caixa de Filtro  -->
+					
+
+					<!-- INICIO - Table -->
+					<div class="fleftSBorder">
+					 <br />
+					 	 
+						 <p:dataTable id="idTable" var="pessoa" value="#{firstPageBBean.pessoas}" rows="5"                 
+						 				columnClasses="registroColumn, nomeColumn, sobreNomeColumn, idadeColumn, nrCpfColumn"
+                						styleClass="tableStyle" headerClass="theadTable">
+					         
+					         <p:column>            
+					         	<f:facet name="header">
+					         		<h:outputText style="font-family:Verdana; color:#666666; font-size:12px;" value="#{ msg['page.title.table.column.nr'] }" />
+					         	</f:facet>
+					         	<h:outputText style="font-family:Verdana; color:#666666; font-size:11px;" value="#{pessoa.nrRegistro}" />         
+					         </p:column>
+
+					         <p:column>            
+					         	<f:facet name="header">
+					         		<h:outputText style="font-family:Verdana; color:#666666; font-size:12px;" value="#{ msg['page.title.table.column.nm'] }" />
+					         	</f:facet>
+					         	<h:outputText style="font-family:Verdana; color:#666666; font-size:11px;" value="#{pessoa.nome}" />         
+					         </p:column>
+
+					         <p:column >            
+					         	<f:facet name="header">
+					         		<h:outputText style="font-family:Verdana; color:#666666; font-size:12px;" value="#{ msg['page.title.table.column.SobNm'] }" />
+					         	</f:facet>
+					         	<h:outputText style="font-family:Verdana; color:#666666; font-size:11px;" value="#{pessoa.sbNome}" />         
+					         </p:column>
+  							
+  							<p:column>            
+					         	<f:facet name="header">
+					         		<h:outputText style="font-family:Verdana; color:#666666; font-size:12px;" value="#{ msg['page.title.table.column.age'] }" />
+					         	</f:facet>
+					         	<h:outputText style="font-family:Verdana; color:#666666; font-size:11px;" value="#{pessoa.idade}" />         
+					         </p:column>
+
+							<p:column>            
+					         	<f:facet name="header">
+					         		<h:outputText style="font-family:Verdana; color:#666666; font-size:12px;" value="#{ msg['page.title.table.column.cpf'] }" />
+					         	</f:facet>
+					         	<h:outputText style="font-family:Verdana; color:#666666; font-size:11px;" value="#{pessoa.nrCpf}" />         
+					         </p:column>
+					</p:dataTable>
+ 				</div>
+ 				<!-- FIM - Table -->
+
+
+				 <!-- Check boxes - select  -->
+				 <div class="fleftSBorder">
+					<br />
+						<h:outputText id="idTextCheck" style="font-family:Verdana; color:#666666; font-size:12px;" value="#{ msg['page.title.component.checkbox'] }" />
+					<br />
+	                <p:panel>
+	                    <p:selectManyCheckbox id="idSelectedsCheck"
+	                            value="#{firstPageBBean.selecteds}">
+	                        <f:selectItems  id="idItensCheck"
+	                                        value="#{firstPageBBean.selectedsItens}"/>
+	                    </p:selectManyCheckbox>
+	                </p:panel>
+	             </div>
+
+				<!-- Radio button boxes - select  -->
+				<div class="fleftSBorder" style="clear:left;">
+					 <br/>
+						<h:outputText id="idTextRadio" style="font-family:Verdana; color:#666666; font-size:12px;" value="#{ msg['page.title.component.radio'] }" />
+					<br/>
+	               <p:panel>
+                    <p:selectOneRadio id="idSlctRadio"
+                            value="#{firstPageBBean.selectedsRadio}">
+                        <f:selectItems  id="idItensRadio" value="#{firstPageBBean.selectedsItens}"/>
+                    </p:selectOneRadio>
+    	            </p:panel>
+	             </div>
+
+
+	           <!-- INICIO - Tooltip  -->
+				<div class="fleftSBorder" style="clear:left;">
+				<br></br>
+					<h:outputText styleClass="text" id="idTooltip" value="#{ msg['page.title.component.text'] }" ></h:outputText>
+					<br></br>
+					<p:inputText id="idTooltipText"  size="25" maxlength="25" value="#{firstPageBBean.text}" />
+					<a href="#" onclick="return false;" class="tooltip">
+<!-- 						<p:graphicImage id="idImageTooltip" value="#{facesContext.externalContext.requestContextPath}/images/img_tooltip.gif" /> -->
+						<img src="#{facesContext.externalContext.requestContextPath}/images/img_tooltip.gif" />
+<!-- 						<h:outputText id="idTextTooltip" styleClass="classic" value="#{ msg['page.text.tooltip'] }"></h:outputText> -->
+					</a>
+					<br></br><br></br>
+				</div>	
+				
+			 <!-- FIM - Tooltip  -->
+			 
+				 <!-- Text Area  -->
+				<div class="fleftSBorder">
+					 <br/>
+						<h:outputText id="idTextTextArea" style="font-family:Verdana; color:#666666; font-size:12px;" value="#{ msg['page.title.component.textArea'] }" />
+					<br/>
+	                <p:panel>
+	                    <p:inputTextarea style="width:600px;height:100px; " id="idTextArea" value="#{firstPageBBean.text}">
+	                    </p:inputTextarea>
+	                </p:panel>
+	             </div>
+
+
+ 			<!-- Popup de ERRO  -->
+ 			<h:outputLabel rendered="#{firstPageBBean.popup}">
+	 			<div class="">
+					<!-- Modal Panel Popup -->
+					<p:dialog id="idModalPnlPop"
+					                draggable="false" modal="true"
+					                visible="#{firstPageBBean.popup}"
+					                rendered="#{firstPageBBean.popup}"
+					                autoCentre="true" >
+					    
+					    <f:facet name="header" >
+					        <p:panel>
+					            <p:commandButton id="idBtnClose"
+					                               image="../../#{facesContext.externalContext.requestContextPath}/images/bt_fechar.gif"
+					                               style="float:right; margin-right:10px; padding-top:10px;" value="Close"
+					                               title="Close Popup" alt="Close" actionListener="#{firstPageBBean.close}" />
+					            <img id="idImgAlerta" src="#{facesContext.externalContext.requestContextPath}/images/img_alerta.gif" /> 
+					            <h:outputText id="idtextImgAlerta" value="Mensagem de Alerta" style="color:red; font-size:20px; margin-left: 10px;"/>
+					        </p:panel>
+					    </f:facet>
+					    <f:facet name="body">
+					        <p:panel>
+					            <h:outputText id="idTextModalPop" style="font-family:Verdana; color:#666666; padding-top:10px; margin-left:20px; margin-right:20px; font-size:13px; padding-bottom:20px;" value="#{ msg['page.msg.component.popAlert'] }" /><br/>
+					        </p:panel>
+					    </f:facet>
+					</p:dialog>
+				 </div>
+	           </h:outputLabel>
+			</form>
+		</ui:define>
+		
+		<!-- Rodape  -->
+		<ui:define name="rodape">
+			    	<h:outputText id="idRodapeNm" styleClass="rodapeTitle" value="Fulano de Tal"/>
+			    	<h:outputText id="idRodapeMtr"  styleClass="rodapeTitle" value="#{ msg['page.rodape.title.mat'] }"/>
+			       	<h:outputText id="idRodapeNrMtr" styleClass="rodapeFont" value="000000"/>
+			       	<h:outputText id="idRodapeUlAcss" styleClass="rodapeTitle" value="#{ msg['page.rodape.title.lastAcess'] }"/>
+			    	<h:outputText id="idRodapeDtUlAcss" styleClass="rodapeFont" value="03/07/2012"/>
+			    	<h:outputText id="idRodapeAmb" styleClass="rodapeTitle"  value="#{ msg['page.rodape.title.amb'] }"/>			    	 
+			    	<h:outputText id="idRodapeNmAmb" styleClass="rodapeFont" value="Desenvolvimento"/> 
+			    	<h:outputText id="idRodapeServ" styleClass="rodapeTitle" value="#{msg['page.rodape.title.serv']}"/> 
+			    	<h:outputText id="idRodapeNmServ"  styleClass="rodapeFont" value="BSBRSP2300"/>
+		</ui:define>
+</ui:composition> 

@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- =========================================================================================================== -->
+    <!-- Clientes Web Service                                                                                        -->
+    <!-- =========================================================================================================== 
+
+    <bean id="uniWSClient" class="org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean">
+        <property name="serviceInterface" value="com.altec.bsbr.app.uni.webservice.UsuarioCampanhaEndPointInterface"/>
+        <property name="wsdlDocumentUrl" value="http://${ws.host}/uni_svc/UsuarioCampanhaEndPointService/usuariocampanhaendpointservice.wsdl"/>
+        <property name="namespaceUri" value="http://webservice.uni.app.bsbr.altec.com/"/>
+        <property name="serviceName" value="UsuarioCampanhaEndPointService"/>
+        <property name="portName" value="UsuarioCampanhaEndPointPort"/>
+        <property name="lookupServiceOnStartup" value="false"/>
+    </bean>
+    -->
+</beans>
